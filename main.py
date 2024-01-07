@@ -20,10 +20,10 @@ scoreboard = Scoreboard()
 
 # listening for key presses
 screen.listen()
-screen.onkey(right_paddle.up, "Up")
-screen.onkey(right_paddle.down, "Down")
-screen.onkey(left_paddle.up, "w")
-screen.onkey(left_paddle.down, "s")
+screen.onkeypress(right_paddle.up, "Up")
+screen.onkeypress(right_paddle.down, "Down")
+screen.onkeypress(left_paddle.up, "w")
+screen.onkeypress(left_paddle.down, "s")
 
 # game loop
 game_is_on = True
