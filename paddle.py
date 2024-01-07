@@ -1,5 +1,7 @@
 from turtle import Turtle
 
+PADDLE_SPEED = 35
+
 
 class Paddle(Turtle):
 
@@ -12,10 +14,9 @@ class Paddle(Turtle):
         self.goto(position)
 
     def up(self):
-        new_y = self.ycor() + 20
+        new_y = self.ycor() + PADDLE_SPEED
         self.goto(self.xcor(), new_y)
 
     def down(self):
-        new_y = self.ycor() - 20
+        new_y = self.ycor() - PADDLE_SPEED
         self.goto(self.xcor(), new_y)
-
