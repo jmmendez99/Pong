@@ -1,6 +1,7 @@
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 
@@ -15,6 +16,7 @@ screen.tracer(0)
 right_paddle = Paddle((350, 0))
 left_paddle = Paddle((-350, 0))
 ball = Ball()
+scoreboard = Scoreboard()
 
 # listening for key presses
 screen.listen()
@@ -35,12 +37,17 @@ while game_is_on:
         # ball will bounce
         ball.bounce_y()
 
-    # Detect collision with left and right walls
+    # Detect collision with right wall
     if ball.xcor() > 380:
         ball.reset()
+        scoreboard.left_score += 1
+        scoreboard.update_scoreboard()
 
+    # Detect collision with left wall
     if ball.xcor() < -380:
         ball.reset()
+        scoreboard.right_score += 1
+        scoreboard.update_scoreboard()
 
     # Detect collision with right paddle
     if ball.distance(right_paddle) < 50 and ball.xcor() > 320\
